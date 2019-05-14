@@ -1,0 +1,10 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+.form-center {
+  margin-top: 20px
+}
+
+.image {
+  height: auto;
+  width: 100%;
+}

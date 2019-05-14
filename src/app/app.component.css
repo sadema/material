@@ -1,0 +1,13 @@
+.card-container {
+  margin: 2rem 0rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.app-card {
+  margin-right: 1rem;
+}
+
+.app-card:last-child {
+  margin-right: 0rem;
+}

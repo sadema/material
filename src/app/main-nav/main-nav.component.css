@@ -1,0 +1,7 @@
+.mat-list-base {
+  display: flex;
+}
+
+.mat-toolbar.mat-primary {
+  background: #0c6d35;
+}

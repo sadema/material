@@ -1,0 +1,22 @@
+<mat-grid-list [cols]="columns$ | async" [rowHeight]="containerdata.rowHeight" [gutterSize]="containerdata.gutterSize">
+  <mat-grid-tile [colspan]="1" [rowspan]="1" *ngFor="let content of containerdata.content">
+    <div content-factory [contentdata]="content"></div>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<div class="grid-list-container">
+  <mat-grid-list [cols]="columns$ | async" rowHeight="550px" gutterSize="1rem">
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <app-card class="app-card"></app-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <app-card class="app-card"></app-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <app-card class="app-card"></app-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <app-card class="app-card"></app-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
