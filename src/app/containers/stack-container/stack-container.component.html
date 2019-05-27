@@ -1,0 +1,5 @@
+<div fxLayout="column">
+  <section *ngFor="let content of containerdata.content">
+    <div content-factory [contentdata]="content"></div>
+  </section>
+</div>

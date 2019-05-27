@@ -1,0 +1,29 @@
+<div fxLayout="row" style="background-color: lightgrey">
+  <section fxFlex="{{contentitem.metadata.flex}}" *ngFor="let contentitem of (content | async).content">
+    <h4>{{contentitem.title}}</h4>
+    <p *ngIf="contentitem.link"><a href="{{contentitem.link.url}}">{{contentitem.link.text}}</a></p>
+    <p *ngFor="let text of contentitem.text">
+      {{text.paragraph}}
+    </p>
+  </section>
+</div>
+<div fxLayout="row">
+  <section fxFlex="50">
+    <h4>Direct naar</h4>
+    <p><a href="">Inschrijvingen</a></p>
+  </section>
+  <section fxFlex="50">
+    <h4>Service</h4>
+    <p><a href="">Contactformulier</a></p>
+  </section>
+  <section fxFlex="50">
+    <h4>Contact</h4>
+    Energieinspiratie<br/>
+    Berkenlaan 3<br/>
+    8112 GH Nijmegen
+  </section>
+  <section fxFlex="50">
+    <h4>Volgen</h4>
+    <p><i class="fab fa-twitter fa-2x"></i></p>
+  </section>
+</div>

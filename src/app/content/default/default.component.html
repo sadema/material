@@ -1,0 +1,3 @@
+<h1>{{contentdefinition?.content.title}}</h1>
+<h4>{{contentdefinition?.content.subtitle}}</h4>
+<p *ngFor="let text of contentdefinition?.content.text" [innerHTML]="text.paragraph"></p>
