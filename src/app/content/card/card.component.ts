@@ -12,19 +12,16 @@ export class CardComponent implements OnInit {
 
   static ref: string = 'card';
 
-  @Input() private contentdata;
-  private contentdefinition;
+  @Input() public contentdata;
+  public contentdefinition;
 
-  constructor(private contentService: ContentService) {
+  constructor(public contentService: ContentService) {
   }
 
   ngOnInit() {
-    if (this.contentdata) {
+    if (this.contentdata.contentitem) {
       console.log(this.contentdata);
       this.contentService.getContentItems(this.contentdata.contentitem)
-        // .pipe(
-        //   map(it => it['content'])
-        // )
         .subscribe(it => {
           this.contentdefinition = it;
           console.log(it);

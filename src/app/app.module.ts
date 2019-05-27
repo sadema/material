@@ -16,13 +16,22 @@ import {ContainerModule} from "./containers/container.module";
 import {GridListContainerComponent} from "./containers/grid-list-container/grid-list-container.component";
 import {ContainerFactoryDirective} from "./containers/container-factory.directive";
 import {ContentFactoryDirective} from "./content/content-factory.directive";
+import {StackContainerComponent} from "./containers/stack-container/stack-container.component";
+import {ImageComponent} from "./content/image/image.component";
+import {JumbotronComponent} from "./content/jumbotron/jumbotron.component";
+import {ContentContainerComponent} from "./containers/content-container/content-container.component";
+import {DefaultComponent} from "./content/default/default.component";
 
 export const ContainerComponents  = [
-  GridListContainerComponent
+  GridListContainerComponent,
+  StackContainerComponent,
+  ContentContainerComponent
 ]
 
 export const ContentComponents = [
-  CardComponent
+  CardComponent,
+  ImageComponent,
+  DefaultComponent
 ]
 
 @NgModule({
@@ -34,7 +43,7 @@ export const ContentComponents = [
     AppComponent,
     MainNavComponent,
     DefaultPageComponent,
-    CardComponent,
+    JumbotronComponent
   ],
   imports: [
     BrowserModule,

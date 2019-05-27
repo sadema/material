@@ -15,12 +15,12 @@ interface BreakpointToColumnNumber {
 })
 export class GridListContainerComponent implements OnInit {
 
-  static ref:string = "GridList";
+  static ref:string = "grid";
 
-  @Input() private containerdata;
+  @Input() public containerdata;
 
-  private columns$: Observable<number>;
-  private breakpointsToColumnsNumber: Map<string, number> = new Map([
+  public columns$: Observable<number>;
+  public breakpointsToColumnsNumber: Map<string, number> = new Map([
     [ 'xs', 1 ],
     [ 'sm', 1 ],
     [ 'md', 2 ],
@@ -28,7 +28,7 @@ export class GridListContainerComponent implements OnInit {
     [ 'xl', 4 ],
   ]);
 
-  constructor(private media: MediaObserver) {
+  constructor(public media: MediaObserver) {
   }
 
   ngOnInit() {

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainNavComponent implements OnInit {
 
+  static ref:string = "image";
+
   constructor() { }
 
   ngOnInit() {

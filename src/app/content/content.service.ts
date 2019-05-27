@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {environment} from "../../environments/environment";
@@ -8,7 +8,8 @@ import {environment} from "../../environments/environment";
 })
 export class ContentService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   getContentItems(contentitem) {
     const contentlink = contentitem.contentlink;

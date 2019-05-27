@@ -15,7 +15,7 @@ export class ContentFactoryDirective {
   ngOnChanges(changes) {
     if (this.contentdata) {
       console.log(this.contentdata);
-      const cf = this.cfResolver.resolveComponentFactory(ContentComponents.find(it => it.ref === this.contentdata.contenttype));
+      const cf = this.cfResolver.resolveComponentFactory(ContentComponents.find(it => it.ref === this.contentdata.ref));
       const component = this.vcRef.createComponent(cf);
       component.instance['contentdata'] = this.contentdata;
     }
