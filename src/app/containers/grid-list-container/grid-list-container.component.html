@@ -1,5 +1,5 @@
-<mat-grid-list [cols]="columns$ | async" [rowHeight]="containerdata.rowHeight" [gutterSize]="containerdata.gutterSize">
-  <mat-grid-tile [colspan]="1" [rowspan]="1" *ngFor="let content of containerdata.content">
+<mat-grid-list [cols]="columns$ | async" rowHeight="650px" [gutterSize]="containerdata.gutterSize">
+  <mat-grid-tile *ngFor="let content of containerdata.content">
     <div content-factory [contentdata]="content"></div>
   </mat-grid-tile>
 </mat-grid-list>

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, HostBinding, Input, OnInit} from '@angular/core';
 import {ContentService} from "../content.service";
 import {Observable, Subject} from "rxjs";
 import {map} from "rxjs/operators";
@@ -12,6 +12,7 @@ export class CardComponent implements OnInit {
 
   static ref: string = 'card';
 
+  @HostBinding('style.align-self') fxFlexAlign="stretch";
   @Input() public contentdata;
   public contentdefinition;
 
@@ -45,9 +46,11 @@ export class CardComponent implements OnInit {
 
   private get textSize(): number {
     let numberOfCharacters: number = -1;
-    let cardtextmeta = this.contentdata.metadata['cardtext'];
-    if (cardtextmeta) {
-      numberOfCharacters = cardtextmeta.numberOfCharacters ? cardtextmeta.numberOfCharacters : -1;
+    if (this.contentdata.metadata) {
+      let cardtextmeta = this.contentdata.metadata['cardtext'];
+      if (cardtextmeta) {
+        numberOfCharacters = cardtextmeta.numberOfCharacters ? cardtextmeta.numberOfCharacters : -1;
+      }
     }
     return numberOfCharacters;
   }

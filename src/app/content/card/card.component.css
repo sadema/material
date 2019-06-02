@@ -7,3 +7,12 @@
   background-size: cover;
 }
 
+.mat-card {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+}
+
+.mat-card-content {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
