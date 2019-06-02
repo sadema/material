@@ -1,0 +1,23 @@
+section.md h4 {
+  font-size: 1rem;
+}
+
+section.md p {
+  font-size: 1rem;
+}
+
+section.md button {
+  font-size: 0.8rem;
+}
+
+section.sm h4 {
+  font-size: 1rem;
+}
+
+section.sm p {
+  font-size: 1rem;
+}
+
+section.sm button {
+  font-size: 0.8rem;
+}
