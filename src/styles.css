@@ -27,6 +27,10 @@ h2 {
   padding: 0 2rem;
 }
 
+.stack_image {
+  padding: 2rem 0;
+}
+
 .image {
   height: auto;
   width: 100%;

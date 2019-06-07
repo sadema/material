@@ -1,3 +1,5 @@
+<section fxFlexAlign="stretch">
 <h1>{{contentdefinition?.content.title}}</h1>
 <h2>{{contentdefinition?.content.subtitle}}</h2>
 <p *ngFor="let text of contentdefinition?.content.text" [innerHTML]="text.paragraph"></p>
+</section>
