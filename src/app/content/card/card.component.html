@@ -9,6 +9,6 @@
     <p [innerHTML]="textsubstring(contentdefinition?.content.text)"></p>
   </mat-card-content>
   <mat-card-actions *ngIf="contentdata?.link">
-    <button mat-button>Lees meer...</button>
+    <button mat-button>{{contentdata.link.text}}</button>
   </mat-card-actions>
 </mat-card>

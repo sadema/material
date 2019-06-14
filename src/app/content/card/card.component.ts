@@ -14,7 +14,7 @@ export class CardComponent implements OnInit {
 
   @HostBinding('style.align-self') fxFlexAlign="stretch";
   @Input() public contentdata;
-  public contentdefinition;
+  private contentdefinition;
 
   constructor(public contentService: ContentService) {
   }

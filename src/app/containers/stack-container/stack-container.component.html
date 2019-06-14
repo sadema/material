@@ -1,4 +1,4 @@
-<div fxLayout="column" [class]="containerdata.class">
+<div fxLayout="column" [class]="containerdata.class" [id]="containerdata.id">
   <h1 *ngIf="containerdata.header">{{containerdata.header}}</h1>
   <section *ngFor="let content of containerdata.content">
     <div content-factory [contentdata]="content"></div>

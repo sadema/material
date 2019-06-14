@@ -21,6 +21,7 @@ import {ImageComponent} from "./content/image/image.component";
 import {JumbotronComponent} from "./content/jumbotron/jumbotron.component";
 import {ContentContainerComponent} from "./containers/content-container/content-container.component";
 import {DefaultComponent} from "./content/default/default.component";
+import {AgendaComponent} from "./content/agenda/agenda.component";
 
 export const ContainerComponents  = [
   GridListContainerComponent,
@@ -31,6 +32,7 @@ export const ContainerComponents  = [
 export const ContentComponents = [
   CardComponent,
   ImageComponent,
+  AgendaComponent,
   DefaultComponent
 ]
 

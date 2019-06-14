@@ -19,24 +19,15 @@ export class JumbotronComponent implements OnInit {
 
   static ref:string = "jumbotron";
 
-  // public columns$: Observable<number>;
-  // public breakpointsToColumnsNumber: Map<string, number> = new Map([
-  //   [ 'xs', 2 ],
-  //   [ 'sm', 2 ],
-  //   [ 'md', 2 ],
-  //   [ 'lg', 4 ],
-  //   [ 'xl', 4 ],
-  // ]);
   content:Observable<any>;
   config$: Observable<Config>;
   public breakpointsToConfig: Map<string, Config> = new Map([
     [ 'xs', { classname: "jumbotron_content flex_xs", flex_width: "100%" } ],
-    [ 'sm', { classname: "jumbotron_content flex_md", flex_width: "50%%" } ],
+    [ 'sm', { classname: "jumbotron_content flex_md", flex_width: "50%" } ],
     [ 'md', { classname: "jumbotron_content flex_md", flex_width: "50%" } ],
     [ 'lg', { classname: "jumbotron_content flex_lg", flex_width: "25%" } ],
     [ 'xl', { classname: "jumbotron_content flex_lg", flex_width: "25%" } ],
   ]);
-  jumbotron_content_classname:string = "jumbotron_content";
 
   constructor(private http:HttpClient, private media: MediaObserver) { }
 
