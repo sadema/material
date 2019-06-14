@@ -16,7 +16,7 @@ export class DefaultPageComponent implements OnInit {
   constructor(private pageService: HomepagetestService) { }
 
   ngOnInit() {
-    this.pageService.getPage().subscribe(page => {
+    this.pageService.getHomePage().subscribe(page => {
       console.log(page['containers']);
       this.containers = page['containers'];
     });

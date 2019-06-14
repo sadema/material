@@ -1,10 +1,46 @@
-section.md h4 {
+#jumbotron {
+  background-color: #eff1f2;
+  padding: 1rem 2rem 0 2rem;
+}
+
+.jumbotron_content {
+  margin: 1rem auto;
+  max-width: 300px;
+}
+
+#jumbotron .flex_lg {
+  padding: 0 3rem 0 5rem;
+}
+
+#jumbotron .flex_md {
+  padding: 1rem 1rem 1rem 6rem;
+}
+
+#jumbotron .flex_xs {
+  padding: 1rem 1rem 1rem 7rem;
+}
+
+
+section.flex_md h4 {
   font-size: 1rem;
 }
 
-section.md p {
+section.flex_md p {
   font-size: 1rem;
 }
+
+section.flex_xs h4 {
+  font-size: 1rem;
+}
+
+section.flex_xs p {
+  font-size: 1rem;
+}
+
+section.flex_xs button {
+  font-size: 0.8rem;
+}
+
 
 section.md button {
   font-size: 0.8rem;

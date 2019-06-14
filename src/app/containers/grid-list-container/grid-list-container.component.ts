@@ -1,11 +1,11 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, HostBinding, Input, OnInit} from '@angular/core';
 import {MediaChange, MediaObserver} from "@angular/flex-layout";
 import {Observable} from "rxjs";
 import {filter, map} from "rxjs/operators";
 
-interface BreakpointToColumnNumber {
-  breakpoint: string;
-  numOfColumns: number;
+interface Config {
+  classname: string;
+  flex_width: string;
 }
 
 @Component({
@@ -19,30 +19,35 @@ export class GridListContainerComponent implements OnInit {
 
   @Input() public containerdata;
 
-  public columns$: Observable<number>;
-  public breakpointsToColumnsNumber: Map<string, number> = new Map([
-    [ 'xs', 1 ],
-    [ 'sm', 1 ],
-    [ 'md', 2 ],
-    [ 'lg', 3 ],
-    [ 'xl', 4 ],
+  id:string;
+  public config$: Observable<Config>;
+  public breakpointsToConfig: Map<string, Config> = new Map([
+    [ 'xs', { classname: "flex_sm", flex_width: "100%" } ],
+    [ 'sm', { classname: "flex_sm", flex_width: "100%" } ],
+    [ 'md', { classname: "flex_md", flex_width: "50%" } ],
+    [ 'lg', { classname: "flex_lg", flex_width: "33%" } ],
+    [ 'xl', { classname: "flex_lg", flex_width: "25%" } ],
   ]);
+  private grid_content_classname:string = "grid_content";
 
   constructor(public media: MediaObserver) {
   }
 
   ngOnInit() {
-    // let columns:Array<BreakpointToColumnNumber> = this.containerdata['columns'];
-    let columns = this.containerdata['columns'];
-    if (columns) {
-      // overwrite defaults
-      this.breakpointsToColumnsNumber = new Map(columns.map(col => [col.breakpoint, col.numOfColumns]));
+    let metadata = this.containerdata['metadata'];
+    if (metadata) {
+      this.id = metadata['id'];
+      let columns = metadata['columns'];
+      if (columns) {
+        // overwrite defaults
+        this.breakpointsToConfig = new Map(columns.map(col => [col.breakpoint, col.config]));
+      }
+      this.config$ = this.media.asObservable().pipe(
+        filter(mcArr => mcArr.length > 0),
+        map(mcArr => mcArr[0]),
+        map(mc => <Config>this.breakpointsToConfig.get(mc.mqAlias))
+      );
     }
-    this.columns$ = this.media.asObservable().pipe(
-      filter(mcArr => mcArr.length > 0),
-      map(mcArr => mcArr[0]),
-      map(mc => <number>this.breakpointsToColumnsNumber.get(mc.mqAlias))
-    );
   }
 
 }

@@ -35,3 +35,19 @@ h2 {
   height: auto;
   width: 100%;
 }
+
+#klankschalen_info_grid {
+  padding: 0 2rem;
+}
+
+#klankschalen_info_grid .flex_md {
+  padding: 0 4rem;
+}
+
+#klankschalen_info_grid .flex_lg {
+  padding: 0 5rem;
+}
+
+.mat-card {
+  margin: 1rem auto;
+}

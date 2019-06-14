@@ -1,44 +1,86 @@
-<mat-grid-list [cols]="columns$ | async" [rowHeight]="(config$ | async).rowheight" gutterSize="1rem" style="background-color: #eff1f2">
-  <mat-grid-tile>
-    <section [class]="(config$ | async).classname" fxLayout="column" fxFlexAlign="start">
+<div fxLayout="row wrap" id="jumbotron">
+  <section [fxFlex]="(config$ | async)?.flex_width">
+    <div [ngClass]="(config$ | async)?.classname">
       <h4>Direct naar</h4>
       <button mat-stroked-button>Inschrijvingen</button>
-    </section>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <section [class]="(config$ | async).classname" fxLayout="column" fxFlexAlign="start">
+    </div>
+  </section>
+  <section [fxFlex]="(config$ | async)?.flex_width">
+    <div [class]="(config$ | async)?.classname">
       <h4>Service</h4>
       <button mat-stroked-button>Contactformulier</button>
-    </section>
-  </mat-grid-tile>
-  <mat-grid-tile rowspan="2">
-    <section [class]="(config$ | async).classname" fxLayout="column" fxFlexAlign="start">
+    </div>
+  </section>
+  <section [fxFlex]="(config$ | async)?.flex_width">
+    <div [class]="(config$ | async)?.classname">
       <h4>Contact</h4>
       <p>
-      Energieinspiratie<br/>
-      Berkenlaan 3<br/>
-      8112 GH Nijmegen<br/>
-      <br/>
-      Sparrenlaan 17<br/>
-      7313 AT Apeldoorn
+        Energieinspiratie<br/>
+        Berkenlaan 3<br/>
+        8112 GH Nijmegen<br/>
+        <br/>
+        Sparrenlaan 17<br/>
+        7313 AT Apeldoorn
       </p>
-    </section>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <section [class]="(config$ | async).classname" fxLayout="column" fxFlexAlign="start">
+    </div>
+  </section>
+  <section [fxFlex]="(config$ | async)?.flex_width">
+    <div [class]="(config$ | async)?.classname">
       <h4>Volgen</h4>
       <section fxLayout="row" fxLayoutGap="1rem">
-      <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">
-        <i class="fa fa-twitter fa-2x"></i>
-      </button>
-      <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">
-        <i class="fa fa-instagram fa-2x"></i>
-      </button>
-<!--      <p><i class="fa fa-twitter fa-2x"></i></p><i class="fa fa-twitter"></i> -->
+        <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">
+          <i class="fa fa-twitter fa-2x"></i>
+        </button>
+        <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">
+          <i class="fa fa-instagram fa-2x"></i>
+        </button>
       </section>
-    </section>
-  </mat-grid-tile>
-</mat-grid-list>
+    </div>
+  </section>
+</div>
+
+<!--<mat-grid-list [cols]="columns$ | async" [rowHeight]="(config$ | async).rowheight" gutterSize="1rem" style="background-color: #eff1f2">-->
+<!--  <mat-grid-tile>-->
+<!--    <section [class]="(config$ | async).classname" fxLayout="column" fxFlexAlign="start">-->
+<!--      <h4>Direct naar</h4>-->
+<!--      <button mat-stroked-button>Inschrijvingen</button>-->
+<!--    </section>-->
+<!--  </mat-grid-tile>-->
+<!--  <mat-grid-tile>-->
+<!--    <section [class]="(config$ | async).classname" fxLayout="column" fxFlexAlign="start">-->
+<!--      <h4>Service</h4>-->
+<!--      <button mat-stroked-button>Contactformulier</button>-->
+<!--    </section>-->
+<!--  </mat-grid-tile>-->
+<!--  <mat-grid-tile rowspan="2">-->
+<!--    <section [class]="(config$ | async).classname" fxLayout="column" fxFlexAlign="start">-->
+<!--      <h4>Contact</h4>-->
+<!--      <p>-->
+<!--      Energieinspiratie<br/>-->
+<!--      Berkenlaan 3<br/>-->
+<!--      8112 GH Nijmegen<br/>-->
+<!--      <br/>-->
+<!--      Sparrenlaan 17<br/>-->
+<!--      7313 AT Apeldoorn-->
+<!--      </p>-->
+<!--    </section>-->
+<!--  </mat-grid-tile>-->
+<!--  <mat-grid-tile>-->
+<!--    <section [class]="(config$ | async).classname" fxLayout="column" fxFlexAlign="start">-->
+<!--      <h4>Volgen</h4>-->
+<!--      <section fxLayout="row" fxLayoutGap="1rem">-->
+<!--      <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">-->
+<!--        <i class="fa fa-twitter fa-2x"></i>-->
+<!--      </button>-->
+<!--      <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">-->
+<!--        <i class="fa fa-instagram fa-2x"></i>-->
+<!--      </button>-->
+<!--&lt;!&ndash;      <p><i class="fa fa-twitter fa-2x"></i></p><i class="fa fa-twitter"></i> &ndash;&gt;-->
+<!--      </section>-->
+<!--    </section>-->
+<!--  </mat-grid-tile>-->
+<!--</mat-grid-list>-->
+
 <!--<div fxLayout="row" style="background-color: lightgrey">
   <section fxFlex="{{contentitem.metadata.flex}}" *ngFor="let contentitem of (content | async).content">
     <h4>{{contentitem.title}}</h4>

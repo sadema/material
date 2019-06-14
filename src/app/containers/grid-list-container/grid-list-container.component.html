@@ -1,5 +1,10 @@
-<mat-grid-list [cols]="columns$ | async" [rowHeight]="containerdata.rowHeight" [gutterSize]="containerdata.gutterSize">
-  <mat-grid-tile *ngFor="let content of containerdata.content">
-    <div content-factory [contentdata]="content"></div>
-  </mat-grid-tile>
-</mat-grid-list>
+<!--<mat-grid-list [cols]="columns$ | async" [rowHeight]="containerdata.rowHeight" [gutterSize]="containerdata.gutterSize">-->
+<!--  <mat-grid-tile *ngFor="let content of containerdata.content">-->
+<!--    <div content-factory [contentdata]="content"></div>-->
+<!--  </mat-grid-tile>-->
+<!--</mat-grid-list>-->
+<div fxLayout="row wrap" [id]="id">
+  <section *ngFor="let content of containerdata.content" [fxFlex]="(config$ | async)?.flex_width" [ngClass]="(config$ | async)?.classname">
+    <div content-factory [contentdata]="content" [class]="grid_content_classname"></div>
+  </section>
+</div>
