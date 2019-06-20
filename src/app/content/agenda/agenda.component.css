@@ -1,0 +1,40 @@
+.agenda section:first-child {
+  padding-left: 0;
+}
+
+.agenda {
+  margin: 1rem 0;
+  padding: 1rem 0;
+  border-bottom: lightgray solid 0.1rem;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+section {
+  padding: 0 1rem;
+}
+
+.img_title {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+button {
+  margin-right: 1rem;
+}
+
+.datum p {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.icon_text {
+  vertical-align: text-bottom;
+}
