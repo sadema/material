@@ -1,3 +1,4 @@
+<!--<div>{{contentdata | json}}</div>-->
 <div fxLayout="row wrap" class="agenda">
   <section [fxFlex]="(config$ | async)?.flex_width[0]">
     <img class="image" [src]="contentdata?.img.url" [alt]="contentdata?.img.alt">
@@ -5,17 +6,19 @@
   </section>
   <section [fxFlex]="(config$ | async)?.flex_width[1]">
     <h2>{{contentdefinition?.content.title}}</h2>
-    <h3>Nog 4 plaatsen beschikbaar</h3>
-    <p [innerHTML]="textsubstring(contentdefinition?.content.text)"></p>
-    <button mat-stroked-button>{{contentdata.informatielink.text}}</button>
-    <button mat-stroked-button>{{contentdata.inschrijflink.text}}</button>
+<!--    <h3>Nog 4 plaatsen beschikbaar</h3>-->
+    <p [innerHTML]="information"></p>
+    <button mat-stroked-button>{{contentdata?.informatielink.text}}</button>
+    <button mat-stroked-button (click)="openInschrijvingDialog()">{{contentdata?.inschrijflink.text}}</button>
   </section>
   <section [fxFlex]="(config$ | async)?.flex_width[2]" fxLayout="column" [class]="(config$ | async)?.classname[2]">
-    <p><i class="material-icons">
-      calendar_today
-    </i><span class="icon_text"> wo 13 maart, 14:00 uur</span></p>
-    <p><i class="material-icons">
-      calendar_today
-    </i><span class="icon_text"> wo 13 maart, 14:00 uur</span></p>
+    <div *ngFor="let agendaItem of activity.activities">
+      <p><i class="material-icons">
+        calendar_today
+      </i><span class="icon_text"> {{agendaItem['activityDate']}} €{{agendaItem['price']}}</span></p>
+    </div>
+<!--    <p><i class="material-icons">-->
+<!--      calendar_today-->
+<!--    </i><span class="icon_text"> wo 13 maart, 14:00 uur</span></p>-->
   </section>
 </div>

@@ -4,10 +4,19 @@ import {Observable} from "rxjs";
 import {TextService} from "../../text.service";
 import {filter, map} from "rxjs/operators";
 import {MediaObserver} from "@angular/flex-layout";
+import {ActivityService} from "../../activity.service";
+import {MatDialog} from "@angular/material";
+import {InschrijvingComponent} from "../../forms/inschrijving/inschrijving.component";
 
 interface Config {
   classname: string[];
   flex_width: string[];
+}
+
+export interface DialogSubscriptionData {
+  title: string;
+  firstname: string;
+  lastname: string;
 }
 
 @Component({
@@ -17,9 +26,12 @@ interface Config {
 })
 export class AgendaComponent implements OnInit {
 
-  public static ref:string = "agenda";
-  @Input() public contentdata;
+  @Input() public activity;
+  contentdata;
+  // public static ref:string = "agenda";
+  // @Input() public contentdata;
   contentdefinition;
+  information;
   config$: Observable<Config>;
   public breakpointsToConfig: Map<string, Config> = new Map([
     [ 'xs', { classname: ["flex_xs","flex_xs","datum flex_xs"], flex_width: ["100%","100%","100%"] } ],
@@ -29,7 +41,11 @@ export class AgendaComponent implements OnInit {
     [ 'xl', { classname: ["flex_lg","flex_lg","datum flex_lg"], flex_width: ["25%","50%","25%"] } ],
   ]);
 
-  constructor(public media: MediaObserver, public contentService: ContentService, public textService:TextService) { }
+  constructor(public media: MediaObserver,
+              private activityService:ActivityService,
+              public contentService: ContentService,
+              public textService:TextService,
+              public dialog:MatDialog) { }
 
   ngOnInit() {
     this.config$ = this.media.asObservable().pipe(
@@ -37,14 +53,34 @@ export class AgendaComponent implements OnInit {
       map(mcArr => mcArr[0]),
       map(mc => this.breakpointsToConfig.get(mc.mqAlias))
     );
-    if (this.contentdata.contentitem) {
-      console.log(this.contentdata);
-      this.contentService.getContentItems(this.contentdata.contentitem)
-        .subscribe(it => {
-          this.contentdefinition = it;
-          console.log(it);
-        });
-    }
+    this.contentService.getContent(this.activity['agendaContentRef'])
+      .subscribe(it => {
+        this.contentdata = it;
+        if (this.contentdata.contentitem) {
+          console.log(this.contentdata);
+          this.contentService.getContentItems(this.contentdata.contentitem)
+            .subscribe(it => {
+              this.contentdefinition = it;
+              console.log(it);
+              this.information = this.textsubstring(this.contentdefinition.content.text)
+            });
+        }
+      });
+
+  }
+
+  openInschrijvingDialog = () => {
+    const dialogRef = this.dialog.open(
+      InschrijvingComponent,
+      { data: {
+          title: this.contentdefinition.content.title,
+          firstname: '',
+          lastname: ''
+      }});
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("Dialog closed!");
+      console.log(result);
+    })
   }
 
   private get textSize(): number {
@@ -58,7 +94,7 @@ export class AgendaComponent implements OnInit {
     return numberOfCharacters;
   }
 
-  textsubstring(textArr: Array<Object>) {
+  public textsubstring(textArr: Array<Object>):string {
     return this.textService.textsubstring(textArr, this.textSize);
   }
 }

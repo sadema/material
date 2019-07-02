@@ -1,0 +1,16 @@
+<section>
+  <h1>Inschrijving {{data.title}}</h1>
+  <form class="example-form" fxLayout="column">
+    <mat-form-field class="example-full-width">
+      <input matInput name="firstname" [(ngModel)]="data.firstname" placeholder="Voornaam">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput name="lastname" [(ngModel)]="data.lastname" placeholder="Achternaam">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <textarea matInput name="opmerking" placeholder="Opmerking"></textarea>
+    </mat-form-field>
+  </form>
+</section>

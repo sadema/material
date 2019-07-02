@@ -10,7 +10,7 @@ import {MaterialModule} from "./material.module";
 import {MainNavComponent} from "./main-nav/main-nav.component";
 import {CardComponent} from "./content/card/card.component";
 import {FlexLayoutModule} from "@angular/flex-layout";
-import {MatGridListModule} from "@angular/material";
+import {MatDialogModule, MatGridListModule} from "@angular/material";
 import {DefaultPageComponent} from "./pages/default-page/default-page.component";
 import {ContainerModule} from "./containers/container.module";
 import {GridListContainerComponent} from "./containers/grid-list-container/grid-list-container.component";
@@ -22,17 +22,19 @@ import {JumbotronComponent} from "./content/jumbotron/jumbotron.component";
 import {ContentContainerComponent} from "./containers/content-container/content-container.component";
 import {DefaultComponent} from "./content/default/default.component";
 import {AgendaComponent} from "./content/agenda/agenda.component";
+import {AgendaContainerComponent} from "./containers/agenda-container/agenda-container.component";
+import {InschrijvingComponent} from "./forms/inschrijving/inschrijving.component";
 
 export const ContainerComponents  = [
   GridListContainerComponent,
   StackContainerComponent,
-  ContentContainerComponent
+  ContentContainerComponent,
+  AgendaContainerComponent
 ]
 
 export const ContentComponents = [
   CardComponent,
   ImageComponent,
-  AgendaComponent,
   DefaultComponent
 ]
 
@@ -45,7 +47,9 @@ export const ContentComponents = [
     AppComponent,
     MainNavComponent,
     DefaultPageComponent,
-    JumbotronComponent
+    JumbotronComponent,
+    AgendaComponent,
+    InschrijvingComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +57,7 @@ export const ContentComponents = [
     FormsModule,
     HttpClientModule,
     MaterialModule,
+    MatDialogModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     MatGridListModule,
@@ -61,7 +66,7 @@ export const ContentComponents = [
   exports: [
     ...ContainerComponents, ...ContentComponents
   ],
-  entryComponents: [...ContainerComponents, ...ContentComponents],
+  entryComponents: [...ContainerComponents, ...ContentComponents, InschrijvingComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
