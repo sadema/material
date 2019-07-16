@@ -7,6 +7,7 @@ import {MediaObserver} from "@angular/flex-layout";
 import {ActivityService} from "../../activity.service";
 import {MatDialog} from "@angular/material";
 import {InschrijvingComponent} from "../../forms/inschrijving/inschrijving.component";
+import * as uuid from 'uuid';
 
 interface Config {
   classname: string[];
@@ -17,6 +18,17 @@ export interface DialogSubscriptionData {
   title: string;
   firstname: string;
   lastname: string;
+  email: string;
+  activities: Array<any>;
+}
+
+export interface Subscription {
+  subscriptionId: string;
+  activityId: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  notice?: string;
 }
 
 @Component({
@@ -74,13 +86,29 @@ export class AgendaComponent implements OnInit {
       InschrijvingComponent,
       { data: {
           title: this.contentdefinition.content.title,
-          firstname: '',
-          lastname: ''
+          activities: this.activity.activities
       }});
     dialogRef.afterClosed().subscribe(result => {
-      console.log("Dialog closed!");
-      console.log(result);
+      if (result) {
+        console.log(result);
+        let subscription: Subscription = {
+          subscriptionId: uuid.v4(),
+          activityId: result.activity,
+          firstName: result.firstname,
+          lastName: result.lastname,
+          email: result.email,
+          notice: result.notice
+        }
+        this.addSubscription(subscription);
+      }
     })
+  }
+
+  addSubscription(subscription:Subscription):void {
+    console.log(subscription);
+    this.activityService.addSubscription(this.activity.agendaContentRef, subscription).subscribe(it => {
+      console.log(it);
+    });
   }
 
   private get textSize(): number {

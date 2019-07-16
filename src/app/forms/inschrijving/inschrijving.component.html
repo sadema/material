@@ -1,16 +1,46 @@
 <section>
   <h1>Inschrijving {{data.title}}</h1>
-  <form class="example-form" fxLayout="column">
-    <mat-form-field class="example-full-width">
-      <input matInput name="firstname" [(ngModel)]="data.firstname" placeholder="Voornaam">
-    </mat-form-field>
+  <!--  <form class="example-form" fxLayout="column">-->
+  <!--    <mat-form-field class="example-full-width">-->
+  <!--      <input matInput name="firstname" [(ngModel)]="data.firstname" placeholder="Voornaam">-->
+  <!--    </mat-form-field>-->
 
-    <mat-form-field class="example-full-width">
-      <input matInput name="lastname" [(ngModel)]="data.lastname" placeholder="Achternaam">
-    </mat-form-field>
+  <!--    <mat-form-field class="example-full-width">-->
+  <!--      <input matInput name="lastname" [(ngModel)]="data.lastname" placeholder="Achternaam">-->
+  <!--    </mat-form-field>-->
 
+  <!--    <mat-form-field class="example-full-width">-->
+  <!--      <textarea matInput name="opmerking" placeholder="Opmerking"></textarea>-->
+  <!--    </mat-form-field>-->
+  <!--  </form>-->
+
+  <form [formGroup]="inschrijving" (ngSubmit)="onSubmit()" class="example-form" fxLayout="column">
     <mat-form-field class="example-full-width">
-      <textarea matInput name="opmerking" placeholder="Opmerking"></textarea>
+      <input matInput placeholder="Voornaam" formControlName="firstname"
+             [errorStateMatcher]="matcher">
     </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Achternaam" formControlName="lastname"
+             [errorStateMatcher]="matcher">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Email" formControlName="email"
+             [errorStateMatcher]="matcher">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Beschikbare data</mat-label>
+      <select matNativeControl required formControlName="activity">
+        <option *ngFor="let activity of data.activities"
+                [ngValue]="activity.activityId">{{activity.activityDate}}</option>
+      </select>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Opmerking" formControlName="notice"></textarea>
+      <mat-hint>Optioneel</mat-hint>
+    </mat-form-field>
+    <mat-dialog-actions>
+      <button mat-stroked-button mat-dialog-close>Afbreken</button>
+      <button type="submit" mat-stroked-button [disabled]="!inschrijving.valid">Inschrijven</button>
+    </mat-dialog-actions>
   </form>
 </section>

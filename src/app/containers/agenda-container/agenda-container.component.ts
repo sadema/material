@@ -17,7 +17,7 @@ export class AgendaContainerComponent implements OnInit {
   constructor(public activityService:ActivityService) { }
 
   ngOnInit() {
-    this.activities = this.activityService.getActivities();
+    this.activities = this.activityService.getAgenda();
   }
 
 }

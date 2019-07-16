@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  databaseurl: 'http://localhost:6905'
+  databaseurl: 'http://localhost:6905',
+  inschrijvingurl: 'http://localhost:4400/api'
 };
 
 /*
