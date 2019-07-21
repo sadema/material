@@ -28,7 +28,7 @@ export interface Subscription {
   firstName: string;
   lastName: string;
   email: string;
-  notice?: string;
+  note?: string;
 }
 
 @Component({
@@ -97,7 +97,7 @@ export class AgendaComponent implements OnInit {
           firstName: result.firstname,
           lastName: result.lastname,
           email: result.email,
-          notice: result.notice
+          note: result.note
         }
         this.addSubscription(subscription);
       }

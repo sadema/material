@@ -19,7 +19,7 @@ export class InschrijvingComponent implements OnInit {
       Validators.email,
     ]),
     activity: new FormControl(null),
-    notice: new FormControl('')
+    note: new FormControl('')
   });
 
   matcher = new MyErrorStateMatcher();
