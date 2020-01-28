@@ -1,7 +1,7 @@
 <div fxLayout="column" [class]="containerdata.class" [id]="containerdata.id">
   <h1 *ngIf="containerdata.header">{{containerdata.header}}</h1>
   <section *ngFor="let activity of (activities | async)">
-    {{activity | json}}
+<!--    {{activity | json}}-->
     <app-agenda [activity]="activity"></app-agenda>
   </section>
 <!--  <section *ngFor="let content of containerdata.content">-->

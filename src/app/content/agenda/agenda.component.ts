@@ -65,8 +65,9 @@ export class AgendaComponent implements OnInit {
       map(mcArr => mcArr[0]),
       map(mc => this.breakpointsToConfig.get(mc.mqAlias))
     );
-    this.contentService.getContent(this.activity['agendaContentRef'])
+    this.contentService.getContent(this.activity['agendaContentRef'].value)
       .subscribe(it => {
+        console.log(it);
         this.contentdata = it;
         if (this.contentdata.contentitem) {
           console.log(this.contentdata);
